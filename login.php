@@ -44,9 +44,11 @@ if (isset($_POST['e_mail']) and isset($_POST['password'])){
         <button class="btn btn-lg btn-primary btn-block" type="submit">LogIn</button>
         <a href="index.php" class="btn btn-lg btn-primary btn-block">Registration</a>
     </form>
+
+    <div class="alert alert-danger <?php echo isset($alert) ? "" : "hidden"; ?>" role="alert"  > <?php echo isset($alert) ? $alert : ""; ?> </div>
 </div>
 
-    <div class="alert alert-danger" role="alert" <?php echo isset($alert) ? "" : "hidden"; ?>' > <?php echo isset($alert) ? $alert : ""; ?> </div>
+
 
 </body>
 

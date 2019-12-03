@@ -15,7 +15,11 @@
 $connection = mysqli_connect('localhost','root','');
 $select_db = mysqli_select_db($connection, 'sport');
 
-if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['e_mail']) && isset($_POST['password']) && isset($_POST['age']) && isset($_POST['gender']) && isset($_POST['age']) && isset($_POST['sport'])){
+//if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['e_mail']) && isset($_POST['password']) && isset($_POST['gender']) && isset($_POST['sport'])){
+if (isset($_POST['gridRadios'])){
+
+    $diff = round((time()-strtotime($_POST['inlineFormCustomSelectMonth']."-".$_POST['inlineFormCustomSelectDay']."-".$_POST['inlineFormCustomSelectYear']))/(3600*24*365.25));
+
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $e_mail = $_POST['e_mail'];
@@ -24,7 +28,7 @@ if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['e
     $gender = $_POST['gender'];
     $sport = $_POST['sport'];
 
-    $query = "INSERT INTO users (first_name, last_name, email, password, age, gender, sport) VALUES ('$first_name', '$last_name', '$e_mail', '$password', $age, '$gender', '$sport')";
+    $query = "INSERT INTO users (first_name, last_name, email, password, age, gender, sport) VALUES ('$first_name', '$last_name', '$e_mail', '$password', $diff, '$gender', '$sport')";
 //
     $result = mysqli_query($connection, $query) or die(mysqli_error($connection) . mysqli_errno($connection));
 //    var_dump("INSERT INTO users (first_name, last_name, e_mail, password, age, gender, sport) VALUES ('$first_name', '$last_name', '$e_mail', '$password', '$age', '$gender', '$sport')");
@@ -51,7 +55,7 @@ if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['e
             <div class="form-row align-items-center">
                 <label class="mr-lg-1" for="inlineFormCustomSelect">Age</label>
                 <div class="col-auto my-1">
-                    <select class="custom-select mr-sm-4" id="inlineFormCustomSelect">
+                    <select class="custom-select mr-sm-4" id="inlineFormCustomSelectMonth" name="inlineFormCustomSelectMonth">
                         <option selected>Month</option>
                         <option value="1">January</option>
                         <option value="2">Fabruary</option>
@@ -59,22 +63,80 @@ if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['e
                         <option value="4">April</option>
                         <option value="5">May</option>
                         <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
                     </select>
                 </div>
                 <div class="col-auto my-1">
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelectDay" name="inlineFormCustomSelectDay">
                         <option selected>Day</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+
                     </select>
                 </div>
                 <div class="col-auto my-1">
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelectYear" NAME="inlineFormCustomSelectYear">
                         <option selected>Year</option>
-                        <option value="1">1995</option>
-                        <option value="2">1996</option>
-                        <option value="3">1997</option>
+                        <option value="76">1976</option>
+                        <option value="77">1977</option>
+                        <option value="78">1978</option>
+                        <option value="79">1979</option>
+                        <option value="80">1980</option>
+                        <option value="81">1981</option>
+                        <option value="82">1982</option>
+                        <option value="83">1983</option>
+                        <option value="84">1984</option>
+                        <option value="85">1985</option>
+                        <option value="86">1986</option>
+                        <option value="87">1987</option>
+                        <option value="88">1988</option>
+                        <option value="89">1989</option>
+                        <option value="90">1990</option>
+                        <option value="91">1991</option>
+                        <option value="92">1992</option>
+                        <option value="93">1993</option>
+                        <option value="94">1994</option>
+                        <option value="95">1995</option>
+                        <option value="96">1996</option>
+                        <option value="97">1997</option>
+                        <option value="98">1998</option>
+                        <option value="99">1999</option>
+                        <option value="200">2000</option>
+                        <option value="01">2001</option>
                     </select>
                 </div>
             </div>
